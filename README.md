@@ -1,5 +1,7 @@
 # neumorphic-peripheral
 
+https://www.npmjs.com/package/neumorphic-peripheral
+
 A lightweight, framework-agnostic JavaScript/TypeScript library that provides beautiful neumorphic styling and functionality for any web framework.
 
 ## Features
