@@ -1,0 +1,405 @@
+/* Enhanced Neumorphic Peripheral CSS - Matching reference designs */
+
+:root {
+  /* Enhanced color palette for better contrast */
+  --np-surface: #e6e7ee;
+  --np-shadow-light: #ffffff;
+  --np-shadow-dark: #a3b1c6;
+  --np-text: #4a5568;
+  --np-text-secondary: #718096;
+  --np-accent: #667eea;
+  --np-accent-alt: #764ba2;
+  --np-error: #e53e3e;
+  --np-success: #38a169;
+  --np-radius: 16px;
+  --np-radius-sm: 12px;
+  --np-radius-lg: 20px;
+  --np-spacing: 16px;
+  --np-shadow-intensity: 0.25;
+  --np-duration: 0.3s;
+  --np-easing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  
+  /* Enhanced shadow distances for more depth */
+  --np-shadow-distance: 10px;
+  --np-shadow-blur: 20px;
+  --np-shadow-spread: -2px;
+}
+
+/* Base component styles with better typography */
+.np-component {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'SF Pro Display', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Enhanced card styles matching reference images */
+.np-card {
+  background: var(--np-surface);
+  border-radius: var(--np-radius);
+  position: relative;
+  transition: all var(--np-duration) var(--np-easing);
+  backdrop-filter: blur(10px);
+}
+
+.np-card-raised {
+  box-shadow: 
+    var(--np-shadow-distance) var(--np-shadow-distance) var(--np-shadow-blur) var(--np-shadow-spread) var(--np-shadow-dark),
+    calc(-1 * var(--np-shadow-distance)) calc(-1 * var(--np-shadow-distance)) var(--np-shadow-blur) var(--np-shadow-spread) var(--np-shadow-light),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.np-card-raised:hover {
+  transform: translateY(-1px);
+  box-shadow: 
+    12px 12px 24px -2px var(--np-shadow-dark),
+    -12px -12px 24px -2px var(--np-shadow-light),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.np-card-inset {
+  box-shadow: 
+    inset var(--np-shadow-distance) var(--np-shadow-distance) var(--np-shadow-blur) var(--np-shadow-spread) var(--np-shadow-dark),
+    inset calc(-1 * var(--np-shadow-distance)) calc(-1 * var(--np-shadow-distance)) var(--np-shadow-blur) var(--np-shadow-spread) var(--np-shadow-light);
+  background: linear-gradient(145deg, #d4d7e0, #f0f1f6);
+}
+
+/* Enhanced input styles with better depth */
+.np-input {
+  background: linear-gradient(145deg, #d4d7e0, #f0f1f6);
+  border: none;
+  border-radius: var(--np-radius-sm);
+  color: var(--np-text);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  outline: none;
+  padding: 14px 18px;
+  transition: all var(--np-duration) var(--np-easing);
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 
+    inset 8px 8px 16px rgba(163, 177, 198, 0.4),
+    inset -8px -8px 16px rgba(255, 255, 255, 0.8),
+    0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.np-input::placeholder {
+  color: var(--np-text-secondary);
+  opacity: 0.8;
+  font-weight: 400;
+}
+
+.np-input:focus {
+  box-shadow: 
+    inset 6px 6px 12px rgba(163, 177, 198, 0.5),
+    inset -6px -6px 12px rgba(255, 255, 255, 0.9),
+    0 0 0 3px rgba(102, 126, 234, 0.15),
+    0 0 20px rgba(102, 126, 234, 0.1);
+  background: linear-gradient(145deg, #d8dbe4, #f2f3f8);
+}
+
+/* Enhanced button styles with proper gradients */
+.np-button {
+  background: linear-gradient(145deg, #f0f1f6, #d4d7e0);
+  border: none;
+  border-radius: var(--np-radius-sm);
+  color: var(--np-text);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 500;
+  font-size: 15px;
+  text-decoration: none;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  outline: none;
+  transition: all var(--np-duration) var(--np-easing);
+  user-select: none;
+  box-shadow: 
+    8px 8px 16px rgba(163, 177, 198, 0.4),
+    -8px -8px 16px rgba(255, 255, 255, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.np-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 
+    10px 10px 20px rgba(163, 177, 198, 0.5),
+    -10px -10px 20px rgba(255, 255, 255, 0.9),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.np-button:active {
+  transform: translateY(1px);
+  box-shadow: 
+    inset 6px 6px 12px rgba(163, 177, 198, 0.4),
+    inset -6px -6px 12px rgba(255, 255, 255, 0.8);
+}
+
+.np-button-primary {
+  background: linear-gradient(145deg, var(--np-accent), var(--np-accent-alt));
+  color: white;
+  font-weight: 600;
+  box-shadow: 
+    8px 8px 16px rgba(102, 126, 234, 0.3),
+    -8px -8px 16px rgba(255, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.np-button-primary:hover {
+  box-shadow: 
+    10px 10px 20px rgba(102, 126, 234, 0.4),
+    -10px -10px 20px rgba(255, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* Toggle switch with proper neumorphic styling */
+.np-toggle {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 32px;
+}
+
+.np-toggle-input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.np-toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(145deg, #d4d7e0, #f0f1f6);
+  border-radius: 16px;
+  transition: all var(--np-duration) var(--np-easing);
+  box-shadow: 
+    inset 6px 6px 12px rgba(163, 177, 198, 0.4),
+    inset -6px -6px 12px rgba(255, 255, 255, 0.8);
+}
+
+.np-toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 24px;
+  width: 24px;
+  left: 4px;
+  top: 4px;
+  background: linear-gradient(145deg, #f0f1f6, #d4d7e0);
+  border-radius: 50%;
+  transition: all var(--np-duration) var(--np-easing);
+  box-shadow: 
+    4px 4px 8px rgba(163, 177, 198, 0.4),
+    -4px -4px 8px rgba(255, 255, 255, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.np-toggle-input:checked + .np-toggle-slider {
+  background: linear-gradient(145deg, var(--np-accent), var(--np-accent-alt));
+  box-shadow: 
+    inset 6px 6px 12px rgba(102, 126, 234, 0.3),
+    inset -6px -6px 12px rgba(255, 255, 255, 0.1);
+}
+
+.np-toggle-input:checked + .np-toggle-slider:before {
+  transform: translateX(28px);
+  background: linear-gradient(145deg, #ffffff, #f0f1f6);
+  box-shadow: 
+    4px 4px 8px rgba(102, 126, 234, 0.2),
+    -4px -4px 8px rgba(255, 255, 255, 0.9),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* Enhanced password field styling */
+.np-password-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.np-password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  background: linear-gradient(145deg, #f0f1f6, #d4d7e0);
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  color: var(--np-text-secondary);
+  font-size: 16px;
+  line-height: 1;
+  border-radius: 8px;
+  transition: all var(--np-duration) var(--np-easing);
+  box-shadow: 
+    4px 4px 8px rgba(163, 177, 198, 0.3),
+    -4px -4px 8px rgba(255, 255, 255, 0.8);
+}
+
+.np-password-toggle:hover {
+  color: var(--np-text);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.np-password-toggle:active {
+  box-shadow: 
+    inset 3px 3px 6px rgba(163, 177, 198, 0.4),
+    inset -3px -3px 6px rgba(255, 255, 255, 0.8);
+}
+
+/* Enhanced sizing variants */
+.np-card-sm {
+  padding: 12px 16px;
+  border-radius: var(--np-radius-sm);
+}
+
+.np-card-md {
+  padding: 16px 20px;
+  border-radius: var(--np-radius);
+}
+
+.np-card-lg {
+  padding: 20px 28px;
+  border-radius: var(--np-radius-lg);
+}
+
+.np-button-sm {
+  padding: 8px 16px;
+  font-size: 14px;
+  min-height: 36px;
+  border-radius: 10px;
+}
+
+.np-button-md {
+  padding: 12px 20px;
+  font-size: 15px;
+  min-height: 44px;
+  border-radius: var(--np-radius-sm);
+}
+
+.np-button-lg {
+  padding: 16px 28px;
+  font-size: 16px;
+  min-height: 52px;
+  border-radius: var(--np-radius);
+}
+
+/* Error states with better visual feedback */
+.np-input.np-error {
+  background: linear-gradient(145deg, #f8d7da, #f5c6cb);
+  box-shadow: 
+    inset 8px 8px 16px rgba(220, 53, 69, 0.2),
+    inset -8px -8px 16px rgba(255, 255, 255, 0.8),
+    0 0 0 2px rgba(220, 53, 69, 0.25);
+}
+
+.np-error-message {
+  color: var(--np-error);
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 6px;
+  display: block;
+  animation: np-slide-in var(--np-duration) var(--np-easing);
+}
+
+/* Enhanced animations */
+@keyframes np-slide-in {
+  0% { 
+    opacity: 0; 
+    transform: translateY(-8px); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes np-pulse {
+  0%, 100% { 
+    box-shadow: 
+      8px 8px 16px rgba(163, 177, 198, 0.4),
+      -8px -8px 16px rgba(255, 255, 255, 0.8);
+  }
+  50% { 
+    box-shadow: 
+      12px 12px 24px rgba(163, 177, 198, 0.5),
+      -12px -12px 24px rgba(255, 255, 255, 0.9);
+  }
+}
+
+/* Loading states */
+.np-button.np-loading {
+  cursor: not-allowed;
+  opacity: 0.8;
+  animation: np-pulse 2s ease-in-out infinite;
+}
+
+/* Dark theme with enhanced contrast */
+.np-theme-dark {
+  --np-surface: #2d3748;
+  --np-shadow-light: #3d4a5c;
+  --np-shadow-dark: #1a202c;
+  --np-text: #e2e8f0;
+  --np-text-secondary: #a0aec0;
+  --np-accent: #805ad5;
+  --np-accent-alt: #9f7aea;
+  --np-error: #fc8181;
+  --np-success: #68d391;
+}
+
+/* Enhanced focus states for accessibility */
+.np-component:focus-visible {
+  outline: 3px solid rgba(102, 126, 234, 0.5);
+  outline-offset: 2px;
+}
+
+/* Responsive enhancements */
+@media (max-width: 768px) {
+  :root {
+    --np-radius: 14px;
+    --np-radius-sm: 10px;
+    --np-shadow-distance: 8px;
+    --np-shadow-blur: 16px;
+  }
+  
+  .np-button-lg {
+    padding: 14px 24px;
+    font-size: 15px;
+    min-height: 48px;
+  }
+  
+  .np-input {
+    font-size: 16px; /* Prevent zoom on iOS */
+    padding: 12px 16px;
+  }
+}
+
+/* High contrast mode improvements */
+@media (prefers-contrast: high) {
+  .np-card-raised,
+  .np-card-inset,
+  .np-input,
+  .np-button {
+    border: 2px solid var(--np-text);
+  }
+  
+  .np-button-primary {
+    border-color: var(--np-accent);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

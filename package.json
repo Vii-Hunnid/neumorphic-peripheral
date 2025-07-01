@@ -1,0 +1,110 @@
+{
+  "name": "neumorphic-peripheral",
+  "version": "1.0.0",
+  "description": "Lightweight, framework-agnostic JavaScript library for beautiful neumorphic styling and functionality",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "styles",
+    "adapters",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./styles": "./styles/neumorphic.css",
+    "./adapters/zod": "./dist/adapters/zod.js",
+    "./adapters/yup": "./dist/adapters/yup.js"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "typecheck": "tsc --noEmit",
+    "clean": "rimraf dist coverage",
+    "prebuild": "npm run clean && npm run lint && npm run typecheck",
+    "analyze": "node scripts/bundle-analyzer.js",
+    "analyze:components": "node scripts/bundle-analyzer.js --components",
+    "size": "npm run build && npm run analyze",
+    "serve": "live-server examples/vanilla --port=3000 --watch=dist",
+    "dev:full": "concurrently \"npm run dev\" \"npm run serve\"",
+    "prepublishOnly": "npm run test && npm run build && npm run analyze",
+    "release": "npm version patch && npm publish",
+    "docs:build": "typedoc src/index.ts --out docs",
+    "perf:test": "node scripts/performance-test.js"
+  },
+  "keywords": [
+    "neumorphic",
+    "soft-ui",
+    "ui-components",
+    "framework-agnostic",
+    "typescript",
+    "vanilla-js",
+    "react",
+    "vue",
+    "svelte",
+    "angular",
+    "validation",
+    "forms",
+    "design-system"
+  ],
+  "author": "Vii-Hunnid <viihunnid@icloud.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.5",
+    "@types/jest": "^29.5.8",
+    "@types/jsdom": "^21.1.7",
+    "@typescript-eslint/eslint-plugin": "^6.12.0",
+    "@typescript-eslint/parser": "^6.12.0",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.54.0",
+    "gzip-size": "^7.0.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jsdom": "^26.1.0",
+    "live-server": "^1.2.2",
+    "rimraf": "^5.0.5",
+    "rollup": "^4.5.0",
+    "ts-jest": "^29.1.1",
+    "typedoc": "^0.25.4",
+    "typescript": "^5.2.2"
+  },
+  "peerDependencies": {
+    "yup": ">=1.0.0",
+    "zod": ">=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "zod": {
+      "optional": true
+    },
+    "yup": {
+      "optional": true
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Vii-Hunnid/neumorphic-peripheral.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Vii-Hunnid/neumorphic-peripheral/issues"
+  },
+  "homepage": "https://github.com/Vii-Hunnid/neumorphic-peripheral#readme",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "browserslist": [
+    "defaults",
+    "not IE 11",
+    "not op_mini all"
+  ]
+}
